@@ -1,17 +1,17 @@
-data = "[(()}}"
-dd = list(data)
-dictBracket = {'(':')',
-                '{':'}',
-                '[':']'}
-stack = []
-for i in dd:
-    if dictBracket[i] == dd[-1]:
-        dd.pop()
-    else: 
-        stack.append(i)
-        dd.pop()
+data = "{[()(]}"
+dd={}
+for val in data:
+    if val in dd.keys():
+        count = dd[val]+1
+        dd[val]=count
+    else:
+        dd[val]=1
         
-    print(dd)
-    print(stack)
+print(dd)
 
-        
+if dd['{']!=dd['}']:
+    print('{,}')
+if dd['[']!=dd[']']:
+    print('[,]')
+if dd['(']!=dd[')']:
+    print('(,)')
